@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>来陪宝宝玩</title>
+<link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="来陪宝宝玩">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <svg class="doodle" style="top:0; right:6px; width:44px;" viewBox="0 0 40 40"><path d="M20 4 C24 12 28 16 36 20 C28 24 24 28 20 36 C16 28 12 24 4 20 C12 16 16 12 20 4 Z" fill="var(--sun)"/></svg>
+  <svg class="doodle" style="top:110px; left:-10px; width:56px;" viewBox="0 0 60 30"><ellipse cx="18" cy="16" rx="16" ry="10" fill="var(--sky)"/><ellipse cx="34" cy="12" rx="14" ry="9" fill="var(--sky)"/></svg>
+
+  <div class="eyebrow" id="dateLine"></div>
+
+  <!-- HOME -->
+  <section class="view active" id="view-home">
+    <header class="top">
+      <h1>来陪宝宝玩<svg class="underline" viewBox="0 0 200 10" preserveAspectRatio="none"><path d="M2 6 Q50 2 100 6 T198 5" stroke="var(--coral)" stroke-width="4" fill="none" stroke-linecap="round"/></svg></h1>
+    </header>
+    <div class="section-grid" id="sectionGrid"></div>
+  </section>
+
+  <!-- 宝宝进度 -->
+  <section class="view" id="view-progress">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">宝宝进度</h2>
+    <div class="view-sub">设一次，灵感墙、活动库、今日小课都会跟着变</div>
+    <div id="progressContent"></div>
+  </section>
+
+  <!-- 今日小课 -->
+  <section class="view" id="view-lesson">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">今日小课</h2>
+    <div class="view-sub">懒得自己想的时候，照着这套走就行</div>
+    <div id="lessonContent"></div>
+  </section>
+
+  <!-- 灵感墙 -->
+  <section class="view" id="view-wall">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">灵感墙</h2>
+    <div class="view-sub">词穷的时候刷一刷，点开看具体怎么玩</div>
+    <div class="grid" id="cardGrid"></div>
+    <div class="diary">
+      <div class="diary-title">✎ 今天的小本本</div>
+      <div id="diaryList"></div>
+      <button class="add-toggle" id="addToggle">+ 记一笔</button>
+      <div class="diary-add" id="diaryAdd" style="display:none;">
+        <textarea id="diaryText" placeholder="今天宝宝做了什么、有什么小进步..."></textarea>
+        <button class="diary-add-btn" id="diarySave">保存</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 玩具/绘本记录 -->
+  <section class="view" id="view-toys">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">玩具/绘本记录</h2>
+    <div class="view-sub">加进来的玩具会在灵感墙里随机轮流推荐，绘本就是记个数</div>
+    <div id="toysContent"></div>
+  </section>
+
+  <!-- 活动库 -->
+  <section class="view" id="view-library">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">活动库</h2>
+    <div class="view-sub">按类别慢慢逛，不止今天推荐的那几个</div>
+    <div class="chip-row" id="libraryFilters"></div>
+    <div id="milestonePicker"></div>
+    <div class="add-row" id="libraryAdd"></div>
+    <div class="library-list" id="libraryList"></div>
+  </section>
+
+  <!-- 主题游戏 -->
+  <section class="view" id="view-theme">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">主题游戏</h2>
+    <div class="view-sub">挑一个主题 + 要准备的东西，自己设置，不用跟着日历走</div>
+    <div class="chip-row" id="themePicker"></div>
+    <div id="themeContent"></div>
+  </section>
+
+  <!-- 本周计划 -->
+  <section class="view" id="view-week">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">本周计划</h2>
+    <div class="view-sub">提前排一排，做不做再说</div>
+    <div class="week-grid" id="weekGrid"></div>
+  </section>
+
+  <!-- 养育原则 -->
+  <section class="view" id="view-principles">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">养育原则</h2>
+    <div class="view-sub">我们的坚持，和不做的事</div>
+    <div id="principlesContent"></div>
+  </section>
+
+  <!-- 安全须知 -->
+  <section class="view" id="view-safety">
+    <button class="back-btn" data-back>← 返回</button>
+    <h2 class="view-title">安全须知</h2>
+    <div class="view-sub">一次性检查清单、日常提醒、遇到意外怎么办</div>
+    <div id="safetyContent"></div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

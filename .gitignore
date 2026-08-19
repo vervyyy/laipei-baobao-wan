@@ -1,0 +1,5 @@
+data.json
+__pycache__/
+.DS_Store
+_preview_test.html
+.claude/
