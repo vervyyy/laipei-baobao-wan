@@ -14,10 +14,12 @@ import re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "双击打开.html")
+PAGES_OUT = os.path.join(ROOT, "docs", "index.html")
 
 BANNER = (
-    '<div class="banner">这是单文件预览版：双击就能开，不用装任何东西，'
-    '但数据只存在这个浏览器里。想让手机和电脑共用一份数据，跑 server.py（见 README）。</div>'
+    '<div class="banner">这是浏览器本地版：不用装任何东西直接能用，但数据只存在'
+    '这一个浏览器里——换设备、换浏览器、清缓存都可能会丢。想要数据稳定保留、'
+    '手机电脑共用一份，下载本地跑的完整版（server.py，见 README）。</div>'
 )
 
 
@@ -52,8 +54,12 @@ def main():
 
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(html)
-
     print(f"已生成 {os.path.basename(OUT)}（{len(html)/1024:.0f} KB）")
+
+    os.makedirs(os.path.dirname(PAGES_OUT), exist_ok=True)
+    with open(PAGES_OUT, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"已生成 docs/index.html（GitHub Pages 用，跟双击打开.html内容一样）")
 
 
 if __name__ == "__main__":
